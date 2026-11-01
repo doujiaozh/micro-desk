@@ -1,0 +1,42 @@
+{
+  "name": "micro-desk",
+  "version": "0.1.0",
+  "description": "MicroDesk - turn any browser into a native desktop app. Pure Node.js, zero native compilation.",
+  "main": "lib/index.js",
+  "bin": {
+    "microdesk": "bin/microdesk.js"
+  },
+  "scripts": {
+    "start": "node bin/microdesk.js start",
+    "dev": "node bin/microdesk.js dev",
+    "doctor": "node bin/microdesk.js doctor",
+    "pack": "node bin/microdesk.js pack",
+    "test": "node tests/smoke.js",
+    "demo": "node bin/microdesk.js start --port 7788",
+    "prepublishOnly": "npm test"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "web/",
+    "microdesk.config.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "desktop",
+    "electron-alternative",
+    "browser",
+    "app-mode",
+    "websocket",
+    "rpc",
+    "win7",
+    "lightweight"
+  ],
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}

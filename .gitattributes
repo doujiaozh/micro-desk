@@ -1,0 +1,18 @@
+# Normalize line endings: LF in the repository, native on checkout.
+* text=auto eol=lf
+
+# Windows launchers must keep CRLF so cmd.exe parses them correctly.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.vbs text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary-ish artifacts
+*.png binary
+*.jpg binary
+*.ico binary
+*.zip binary
+*.exe binary
+
+# Keep generated bundles out of diffs
+dist/** linguist-generated=true

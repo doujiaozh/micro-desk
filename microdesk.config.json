@@ -1,0 +1,34 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microdesk/micro-desk/main/schema/microdesk.config.schema.json",
+  "app": {
+    "name": "MicroDesk Workbench",
+    "id": "microdesk-app",
+    "root": "web",
+    "entry": "index.html"
+  },
+  "server": {
+    "host": "127.0.0.1",
+    "port": 0
+  },
+  "window": {
+    "width": 1180,
+    "height": 760,
+    "kiosk": false,
+    "browser": null,
+    "profileDir": null,
+    "extraArgs": []
+  },
+  "bridge": {
+    "tickMs": 1000,
+    "permissions": {
+      "fs": true,
+      "exec": true,
+      "open": true,
+      "env": true
+    },
+    "maxReadBytes": 16777216,
+    "maxWriteBytes": 16777216,
+    "execTimeout": 15000
+  },
+  "autoExit": true
+}

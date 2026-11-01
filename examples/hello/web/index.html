@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Hello MicroDesk</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <h1>Hello&nbsp;MicroDesk</h1>
+    <p class="sub">一个 30 行的桌面应用 — 没有 Electron，没有原生编译。</p>
+
+    <section>
+      <button id="btn-greet">调用 host.greeting（自定义 RPC）</button>
+      <button id="btn-info">读取系统信息（sys.info）</button>
+      <button id="btn-file">写一个文件（fs.writeFile）</button>
+      <pre id="out">点击上面任意按钮…</pre>
+    </section>
+
+    <footer>
+      <span id="status">connecting…</span>
+      <span>Node <b id="node">?</b></span>
+    </footer>
+  </main>
+
+  <script src="/sdk/microdesk.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

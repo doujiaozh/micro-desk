@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    name: smoke (${{ matrix.os }}, node ${{ matrix.node }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+        node: ['12', '16', '18', '20']
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Show environment
+        run: node -p "process.version + ' / ' + process.platform + ' / no deps installed'"
+
+      - name: Smoke test (no npm install needed — zero dependencies)
+        run: node tests/smoke.js
+
+      - name: Pack into a single file
+        run: node bin/microdesk.js pack --out dist-ci
+
+      - name: The bundle must boot without a browser
+        shell: bash
+        run: |
+          node dist-ci/microdesk.bundle.js start --dry-run --port 0 | head -n 12
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: microdesk-bundle-${{ matrix.os }}-node${{ matrix.node }}
+          path: dist-ci/microdesk.bundle.js
+          if-no-files-found: error

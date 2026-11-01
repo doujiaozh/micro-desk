@@ -1,0 +1,26 @@
+# dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# build output
+dist/
+build/
+*.bundle.js
+
+# runtime artifacts
+*.log
+demo-output.txt
+.cache/
+tmp/
+
+# microdesk local profile / pid files
+.microdesk/
+*.pid
+
+# editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

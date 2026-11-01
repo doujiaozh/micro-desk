@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="dark light" />
+<title>MicroDesk Workbench</title>
+<link rel="stylesheet" href="/app.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1220'/%3E%3Cpath d='M16 40V24l8 8 8-8 8 8 8-8v16' stroke='%235eead4' stroke-width='4' fill='none' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <div class="titlebar">
+    <div class="brand">
+      <span class="logo">▚</span>
+      <strong>MicroDesk</strong>
+      <span class="tag" id="app-name">Workbench</span>
+    </div>
+    <div class="status">
+      <span class="dot" id="link-dot"></span>
+      <span id="link-text">connecting…</span>
+      <span class="sep">|</span>
+      <span id="node-info">node —</span>
+    </div>
+  </div>
+
+  <main class="layout">
+    <section class="panel">
+      <header class="panel-head">
+        <h1>RPC Bridge</h1>
+        <p class="hint">前端直接调用 Node.js 原生能力（Promise 化的 IPC）</p>
+      </header>
+      <div class="row">
+        <select id="rpc-method" class="input mono"></select>
+        <button class="btn primary" id="rpc-run">调用 Call</button>
+      </div>
+      <textarea id="rpc-params" class="input mono area" spellcheck="false">[]</textarea>
+      <pre id="rpc-result" class="result mono">// 结果会显示在这里</pre>
+    </section>
+
+    <section class="panel">
+      <header class="panel-head">
+        <h1>System</h1>
+        <p class="hint">由 Node 端直接读取，浏览器拿不到的数据</p>
+      </header>
+      <ul class="kv" id="sys-info">
+        <li><span>状态</span><b>初始中…</b></li>
+      </ul>
+      <div class="row">
+        <input id="ping-input" class="input mono" value="hello microdesk" />
+        <button class="btn" id="ping-btn">Ping</button>
+      </div>
+    </section>
+
+    <section class="panel wide">
+      <header class="panel-head">
+        <h1>Live Log</h1>
+        <p class="hint">桥接层事件流（连接 / 调用 / 推送）</p>
+      </header>
+      <div class="log mono" id="log"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>MicroDesk：把浏览器变成原生 APP，让桌面开发回归纯粹。</span>
+    <span id="uptime"></span>
+  </footer>
+
+  <script src="/sdk/microdesk.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
